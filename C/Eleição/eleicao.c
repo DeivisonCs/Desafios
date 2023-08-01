@@ -28,7 +28,6 @@ int main()
     float percent_nulos[2];
     int C, ctrl=0, aux; //variáveis de controle/auxiliares
 
-//Cadastro dos Candidatos
 for(C=0; C<candidatos; C++)
 {
     printf("Cadastro Prefeitos: \n");
