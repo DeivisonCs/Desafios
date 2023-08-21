@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>  
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="shortcut icon" href="../curso-em-video/aula-adicionando-imagens/icone-riven.png" type="image/x-icon">
+
+        <title>Tags Básicas </title>
+
+        <style>
+            @import url('https://fonts.googleapis.com/css2?family=Handjet:wght@500&display=swap');
+            @font-face {
+                font-family: 'celtic';
+                src: url(fonts/celticmd.ttf) format(truetype);
+                font-weight: normal;
+                font-style: normal;
+            }
+
+            h1{
+                text-align: center;
+                margin-bottom: 40px;
+            }
+
+            #P1{
+                display: inline-block;
+                vertical-align: top;
+                margin-right: 100px;
+                max-width: 300px;
+                margin-left: 10px;
+            }
+
+            .font-ext{
+                font-family:  'Handjet', Arial, Helvetica, sans-serif;
+            }
+            
+            .font-int{
+                font-family: celtic, 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+            }
+
+            #topicos{
+                display: flex;
+                flex-wrap: wrap;
+            }
+            #topicos li{
+                margin-left: 30px;
+                margin-top: 5px;
+            }
+            #topicos a{
+                text-decoration: none;
+                color: rgb(67, 67, 233);
+            }
+
+            .top_bottom{
+                margin-left: 10px;
+                text-decoration: none;
+                border: solid 2px;
+                border-radius: 50%;
+            }.to_top{
+             text-decoration: none;
+             color: black;
+            }
+        </style>   
+    </head>
+
+    <body>
+        <h1 id="start">Conhecimentos Básicos (HTML)</h1>
+       
+        <h2>Tópicos</h2>
+        <p id="p_topicos">Clique para ver:</p>
+            <ul id="topicos">
+                <li><a href="#servidores">DNS e URL</a></li>
+                <li><a href="#titulos">Títulos</a></li>
+                <li><a href="#formatacoes">Espaçamento de parágrafos e formações</a></li>
+                <li><a href="#adc_img">Adicionar imagens</a></li>
+                <li><a href="#adc_audio">Adicionar áudios</a></li>
+                <li><a href="#adc_video">Adicionar vídeos</a></li>
+                <li><a href="#adc_lists">Adicionar listas</a></li>
+                <li><a href="#adc_forms">Adicionar formulários (input)</a></li>
+                <li><a href="#adc_links">Adicionar links</a></li>
+                <li><a href="#adc_special_caracter">Adicionar caracteres especiais e emojis</a></li>
+                <li><a href="#adc_fonts">Adicionar fontes</a></li>
+            </ul>
+        
+    <hr id="servidores"/>
+        <h2>Caminho Servidor-Cliente
+            <a href="#start" class="to_top"><span class="top_bottom">&uparrow;</span></a>
+        </h2>
+        <img src="imagens/path-dados.png" alt="Ilustração do path" width="500px">
+        
+        <p id="P1">O usuário envia uma requisição de IP para o DNS, que retorna o IP do site que o usuário pediu, assim o usuário pode acessar o site desejado. Isso é necessário porque o IP dos sites mudam periodicamente, o IP da sua internet também muda toda vez que o modem é tirado da tomada e reiniciado.</p>
+        
+        <h2>Composição de uma URL</h2>
+        <img src="imagens/comp-url.png" alt="Composição URl" width="500px">
+    
+    <hr id="titulos"/>
+    
+        <h2> Titulo h1 
+            <a href="#start" class="to_top"><span class="top_bottom">&uparrow;</span></a>
+        </h2>
+            <p>Os títulos possuem hierarquia e vai do 1 até o 6 (sendo o 1 o principal)</p>
+
+    <hr id="formatacoes" />
+
+        <h2> Teste do espaçamento de parágrafo e formatações
+            <a href="#start" class="to_top"><span class="top_bottom">&uparrow;</span></a>
+        </h2>
+            <h3>Espaçamento de parágrafo</h3>
+            <p>Para iniciar um parágrafo usa-se a tag &lt;p&gt;. <br>
+            Para continuar o parágrafo na próxima linha usa-se a tag &lt;br&gt;</p>
+
+            <h3>Negrito</h3>
+                <p> Para usar negrito usa-se a tag <b>&lt;b&gt;</b> (Método sem semântica). <br>
+                Porém, o correto seria usar o <strong>&lt;strong&gt;</strong> (Método com semântica).</p>
+            
+            <h3>Itálico</h3>
+            <p>Para usar o <i>itálico</i> pode usar a tag &lt;i&gt; (Sem semântica). <br>
+            Porém, deve-se usar a tag <em>&lt;em&gt;</em> (Com semântica).</p>
+
+            <h3>Sublinhado</h3>
+
+            <p>Para sublinhar um texto <u>pode-se usar</u> a tag &lt;u&gt; (Sem semântica). <br>
+            Porém, <ins>deve-se utilizar</ins> a tag &lt;ins&gt; (Com semântica).</p>
+
+            <h3>Texto excluído</h3>
+            <p>Para esse tipo de formatação usa-se a tag &lt;del&gt;. <br> <del>Frase de exemplo.</del></p>
+
+            <h3>Marcação</h3>
+            <p>
+                Para adicionar marcação usa-se a tag <mark>&lt;mark&gt;</mark>.
+                A cor padrão é amarela, mas <mark style="background-color: lime;">é possível alterar</mark> utilizando o comando <em>style</em> na tag (já não é mais html, é css).
+            </p>
+
+            <h3>Texto sobrescrito</h3>
+            <p>Para fazer o texto sobrescrito usa-se a tag &lt;sup&gt; <br>
+            Exemplo de texto<sup>sobrescrito</sup>, ou, x<sup>2</sup>+3.</p>
+
+            <h3>Texto subscrito</h3>
+            <p>Para fazer o texto subscrito usa-se a tag &lt;sub&gt; <br>
+            Exemplo de texto<sub>subscrito</sub> , ou, H<sub>2</sub>0.</p>
+
+            <h3>Código-Fonte</h3>
+            <p>A tag &lt;code&gt; deixa as letras monoespaçadas, com o mesmo espaçamento, facilitando a leitura em algumas ocasiões, como em links por exemplo. <br>Exemplo: <br>document.getElementByld'teste' (Sem o espaçamento). <br><code>document.getElementByld'teste'</code> (Com o espaçamento).</p>
+
+            <p>
+                Também é possível dentro do &lt;code&gt; com a tag &lt;pre&gt; formatar para que o texto assuma a mesma formatação usada no códig-fonte do site. <br>Exemplo: <br>
+                <pre>
+                    <code>
+                    #include &lt;stdio.lib&gt;
+                    int main()
+                    {
+                        int N=2, N2=3, R;
+                        R=N+N2;
+                            printf("%d", R);
+                    }
+                    </code>
+                </pre>
+            </p>
+
+            <h3>Citação Curta</h3>
+            <p>Usa-se a tag &lt;q&gt;, para dar aspas e dar sentido a uma citação curta.<br>Ex: Como diria Tia Sônia: <q>Receita original, fonte de fibras.</q></p>
+
+            <h3>Citação Completa</h3>
+            <p>
+                Usa-se a tag &lt;blockquote&gt;, para fazer citações maiores (que possuem espaçamento).<br>Exemplo: Como diria Sun Tzu, no livro <q>A Arte da Guerra</q>: <blockquote cite="https://www.psicanaliseclinica.com/frases-do-livro-a-arte-da-guerra/">A suprema arte da guerra é derrotar o inimigo sem lutar.</blockquote>
+                Também é possível adicionar o link de onde foi tirada a citação, mas serve apenas para que os créditos sejam devidamente atribuidos, não possui nenhuma funcionalidade no site.
+            </p>
+            
+            <h3>Abreviações</h3>
+            <p>
+                Usa-se a tag &lt;abbr&gt; para colocar o significado de uma abreviação ao passar o mouse. <br>
+                Ex: <abbr title="Hypertext Markup Language">HTML</abbr>, <abbr title="Cascading Style Sheets">CSS</abbr>.
+                <br><em>A parte visual pode ser editado no css.</em>
+            </p>
+
+            <h3>Inverter texto</h3>
+            Para inverter o texto usa-se a tag &lt;bdo&gt;, ela possui dois parâmetros, o <q>ltr</q> (left to right), e o <q>rtl</q> (right to left). 
+            <br>Ex: <bdo dir="ltr">Tag bem aleatória</bdo> / <bdo dir="rtl">Tag bem aleatória.</bdo>
+
+    <hr id="adc_img"/>   
+
+        <h2> Teste de adição de imagens 
+            <a href="#start" class="to_top"><span class="top_bottom">&uparrow;</span></a>
+        </h2>
+
+        <p>Tag &lt;img&gt;</p>
+
+        <img src="DevisXD2.png" width="300" height="300" alt="Imagem Teste"/>
+        
+            <h3>Imagem Adaptativa (sem CSS)</h3>
+
+            <p>
+                Para uma imagem adapatar ao tamanho do navegador ou da tela usa-se antes a tag &lt;picture&gt;, e a tag &lt;source:media:type&gt;.
+            </p>
+
+            <picture>
+                <source media="(max-width: 320px)" srcset="../curso-em-video/aula-adicionando-imagens/icone-riven.png" type="image/png">
+                <source media="(max-width: 750px)" srcset="imagens/img-p.png" type="image/png">
+                <source media="(max-width: 1050px)" srcset="imagens/img-m.png" type="image/png">
+                <img src="imagens/img-g.png" alt="Imagem Adaptativa">
+            </picture>
+
+    <hr id="adc_audio"/>
+        
+        <h2>Adicionando Áudio
+            <a href="#start" class="to_top"><span class="top_bottom">&uparrow;</span></a>
+        </h2>
+
+        <p>Para adicionar áudio usa-se a tag &lt;audio&gt;, seguida de alguns parâmetros de configurações como <em>preload="", controls, autoplay, loop</em>.</p>
+
+        <audio preload="metadata" controls loop>
+            <source src="audios/vindicated.mp3" type="audio/mpeg">
+            <p>Seu navegador não reproduz áudio, click para fazer o download <a href="audios/vindicated.mp3"></a></p>
+        </audio>
+
+        <p>É possível colocar variáveis do formato do arquivo de áudio usando o &lt;source:src&gt;, em casos do navegador do usuário não suportar determinado tipo de arquivo de áudio.</p>
+        
+    <hr id="adc_video"/>
+        
+        <h2>Adicionando Videos
+            <a href="#start" class="to_top"><span class="top_bottom">&uparrow;</span></a>
+        </h2>
+
+        <h3>Hospedados no Próprio Site</h3>
+
+        <p>
+            Para adicionar videos usas-se a tag &lt;video&gt;, seguida de alguns parâmetros, como <em>controls</em> (botões do vídeo), <em>widht</em> (tamanho que o video aparece) e/ou <em>poster=" "</em> (imagem da thumb).
+        </p>
+
+        <video controls width="560" poster="videos/thumb-audi.jpg" loop>
+            <source src="videos/video-audiv8.mp4" type="video/mp4">
+            <p>Seu navegador não reproduz mp4.</p>
+        </video>
+
+        <p>É recomendado usar a tag &lt;source:src&gt; para adicionar vários tipos de arquivo de vídeo, para o caso do navegador do usário não ser compatível com algum. <br>Também é necesssário tomar cuidado com o tamanho do vídeo, o consumo para vídeos hospedados no próprio site é muito grande, aumentando os custos.</p>
+
+        <h3>Hospedados de Forma Externa</h3>
+
+        <p>São vídeos hospedados em outros sites, como o YouTube. <br>Ex:</p>
+
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/3hng-hmSv2Y?start=321" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+
+        <p>O próprio YouTube tem o código pronto em HTML, basta clicar em compartilhar e em embed(incorporar). Lembrando que é necessário tomar cuidado com direitos autorais. Logo, se torma mais barato para o proprietário do site, postar os vídeos no YouTube e depois adicionar ao seu site de forma externa.</p>
+
+    <hr id="adc_lists"/>
+
+        <h2> Lista com tag "ul" (tag sem ordenação) 
+            <a href="#start" class="to_top"><span class="top_bottom">&uparrow;</span></a>
+        </h2>
+        <ul type="square">
+            <li> Item; </li>
+            <li> Item;</li>
+            <li> Item. </li>
+        </ul>
+        <p>É possível alterar o formato do marcador usando <em>type=" "</em> podendo ser square, circle ou disc(padrão).</p>
+
+        <h2> Lista com tag "ol" (tag com numeração) </h2>
+        <ol>
+            <li> Item; </li>
+            <li> Item; </li>
+            <li> Item; </li>
+        </ol>
+        <p>É possível alterar o início da contagem e o tipo de contador usando <em>start=" "</em> e <em>type=" "</em>. A contagem pode ser com numeros, com alfabeto(uppercase ou lowercase) ou em romano (uppercase ou lowercase)</p>
+
+    <hr id="adc_forms"/>
+
+        <h2>Adicionar formulários
+            <a href="#start" class="to_top"><span class="top_bottom">&uparrow;</span></a>
+        </h2>
+        <p>Usa-se a tag &lt;form&gt; e &lt;input&gt; seguida de <em>type=""</em> e o tipo de entrada de dados. </p>
+
+        <h3> Formulário de texto "text" </h3>
+        Aceita letras, números e simbolos: 
+
+        <p>
+            <form>
+                <input type="text">
+            </form>
+        </p>
+
+        <h3> Formulário de números "number" </h3>
+        Aceita apenas números e não aceita espaço: 
+        
+        <p>
+            <form>
+                <input type="number" />
+            </form>
+        </p>
+        
+        <h3> Formulário de senha "password" </h3>
+        O que é digitado fica oculto:
+        
+        <p>
+            <form>
+                <input type="password" />
+                <input type="password" />
+            </form>
+        </p>
+
+        <p> &uparrow; Caso tenha duas caixas de input na mesma
+        função "form", elas são expostas lado a lado.</p>
+
+        <h3> Teste tag "button" </h3>
+
+        <p>
+            <form>
+                <input type="text" />
+            </form> <br>
+            <button> Botão de Teste </button>
+        </p>
+
+    <hr id="adc_links"/>  
+
+        <h2> Adicionar links
+            <a href="#start" class="to_top"><span class="top_bottom">&uparrow;</span></a>
+        </h2>
+
+        <p>
+            Link normal:
+            <a href="https://www.w3schools.com" target="_blank" rel="external">
+                Link w3schools
+            </a> <br>
+            Link para download: 
+            <a href="teste_download/ProjetoL.deReceitas.pdf" download="ProjetoL.deREceitas.pdf" type="application/pdf" target="_blank">Projeto L.Receita</a>
+        </p>
+
+        <p>
+            Os links podem ser abertos em outra aba usando target="_blank", ou na mesma aba utilizando target="_self". <br>Também é recomendável utilizar referências para auxiliar os mecanismos de busca do google. Veja mais detalhes no repositório no <a href="https://github.com/gustavoguanabara/html-css/blob/master/aulas-pdf/10%20-%20Liga%C3%A7%C3%B5es%20em%20toda%20parte.pdf" target="_blank" rel="external">github</a> do Gustavo Guanabara. <br>
+            Os links para download possuem uma lista específica de atribuição (também disponível no pdf acima).
+        </p>
+
+    <hr id="adc_special_caracter"/>
+
+        <h2> Adicionando caracteres especiais
+            <a href="#start" class="to_top"><span class="top_bottom">&uparrow;</span></a>
+        </h2>
+
+        <p> 
+            &pound; 
+            &dollar;
+            &checkmark;
+            &nbsp;
+            &cent;
+            &reg;
+            &trade; <br>
+            &delta;
+            &Delta;
+            &copy;
+            &updownarrow;
+            &rightarrowtail;
+            &ast;
+            &yen;
+        </p>
+
+        <h2>Adicionando Emojis</h2>
+
+        <p>Para adicionar emoji, usa '&' (para informar a entrada de caracteres especiais) seguido de '#x' (para informar que o código é hexadecimal), em seguida o código do emoji. <br>Alguns sites com códigos de emotes: 
+            <a href="https://emojipedia.org/" target="_blank" external="nofollow">emojipedia.org</a>
+
+        <p>
+            &#x1F480;
+            &#x1F61E;
+            &#x26F9;
+            &#x1F38C;
+        </p>
+    
+    <hr id="adc_fonts"/>
+        
+        <h2>Adicionando Fontes
+            <a href="#start" class="to_top"><span class="top_bottom">&uparrow;</span></a>
+        </h2>
+
+        <h3 class="font-ext">Fonte Externa</h3>
+        <p class="font-ext">Lorem ipsum dolor sit amet consectetur adipisicing elit. Omnis modi officia voluptas cumque, laborum sunt facere incidunt at temporibus repellendus odio autem neque iure fuga. Adipisci sint consequatur sequi quaerat.</p>
+
+        <h3 class="font-int">Fonte Interna (baixada)</h3>
+        <p class="font-int">Lorem ipsum dolor sit amet consectetur adipisicing elit. Omnis modi officia voluptas cumque, laborum sunt facere incidunt at temporibus repellendus odio autem neque iure fuga. Adipisci sint consequatur sequi quaerat.</p>
+
+        <p>
+            Tipos de format()
+            <ul>
+                <li>opentype (otf)</li>
+                <li>truetype (ttf)</li>
+                <li>embedded-opentype</li>
+                <li>truetype-aat (Apple Advenced Typography)</li>
+                <li>svg</li>
+            </ul>
+        </p>
+
+    </body>
+</html>
