@@ -1,5 +1,8 @@
 import functions
 
+__Alunos = []
+
+
 while True:
     option = functions.main_Menu()
 
@@ -8,16 +11,23 @@ while True:
             break
 
         case 1:
-            print("Adicionar")
+            print("------------- Adicionar -----------")
+            valid = functions.new_student(__Alunos)
 
+            if valid == True:
+                print("\nAluno Inserido!\n")
+            else:
+                print("Aluno Não Inserido!\n")
+                
         case 2:
             print("Atualizar")
 
         case 3:
-            print("Listar")
+            print("------------- Listar -------------\n")
+            functions.show_Students(__Alunos)
 
         case 4:
-            print("Excluir")
+            print("------------- Excluir -------------")
 
         case _:
             print("Valor Inválido!")
