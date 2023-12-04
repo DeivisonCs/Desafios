@@ -7,10 +7,10 @@ while True:
     option = functions.main_Menu()
 
     match option:
-        case 0:
+        case "0":
             break
 
-        case 1:
+        case "1":
             print("------------- Adicionar -----------")
             valid = functions.new_student(__Alunos)
 
@@ -19,14 +19,15 @@ while True:
             else:
                 print("Aluno Não Inserido!\n")
                 
-        case 2:
-            print("Atualizar")
+        case "2":
+            print("------------- Atualizar -------------")
+            valid = functions.update(__Alunos)            
 
-        case 3:
+        case "3":
             print("------------- Listar -------------\n")
             functions.show_Students(__Alunos)
 
-        case 4:
+        case "4":
             print("------------- Excluir -------------")
 
         case _:
