@@ -20,19 +20,34 @@ def main_Menu():
 
 # ------------- Inserir ---------------
 
+def verify_int(x):
+    if x.isdigit():
+        return True
+    
+    return False
+
+
 def verify_Cad(age, cpf, mat, sex):
 
     # sex = sex.upper()
-    if age < 0:
-        print("\nIdade Inválida!\n")
+    if verify_int(age) == False:
+        print("\nIdade Inválida!")
         return False
 
-    elif sex.upper() != 'M' and sex.upper() != 'F': 
-        print("\nSexo Inválido!\n")
+    elif int(age) < 0:
+        print("\nIdade Inválida!")
         return False
     
-    elif mat < 0:
-        print("\nMatricula Inválida!\n")
+    elif sex.upper() != 'M' and sex.upper() != 'F': 
+        print("\nSexo Inválido!")
+        return False
+    
+    elif verify_int(mat) == False:
+        print("\nMatricula Inválida!")
+        return False
+    
+    elif int(mat) < 0:
+        print("\nMatricula Inválida!")
         return False
     
     else: 
@@ -41,17 +56,19 @@ def verify_Cad(age, cpf, mat, sex):
 
 def new_student(Lista):
     name = input("Nome: ")
-    age = int(input("Idade: "))
-    
-
+    age = input("Idade: ")
     cpf = input("CPF: ")
-    mat = int(input("Matricula: "))
+    mat = input("Matricula: ")
     sex = input("Sexo: ")
 
     valid = verify_Cad(age, cpf, mat, sex)
 
     if valid == True:
-        Lista.append(Alunos(name=name, age=age, cpf=cpf, matricula=mat, sexo=sex))
+        age = int(age)
+        mat = int(mat)
+        sex = sex.upper()
+
+        Lista.append(Alunos(name=name, age=int(age), cpf=cpf, matricula=int(mat), sexo=sex))
         return True
     else:
         return False
