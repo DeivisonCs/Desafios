@@ -8,14 +8,20 @@ class Alunos:
 
 
 def main_Menu():
-    print("------------- Menu -----------\n")
-    print("1 - Adicionar")
-    print("2 - Atualizar")
-    print("3 - Listar")
-    print("4 - Excluir")
-    print("0 - sair")
+    while True:
+        print("------------- Menu -----------\n")
+        print("1 - Adicionar")
+        print("2 - Atualizar")
+        print("3 - Listar")
+        print("4 - Excluir")
+        print("0 - sair")
 
-    return input("\n--> ")
+        option = input("\n--> ")
+
+        if verify_int(option):
+            return int(option)
+        else:
+            print("Valor Inválido!\n")
 
 
 def verify_int(x):
@@ -95,15 +101,21 @@ def new_student(Lista):
 # ---------------------------------- Atualizar -----------------------------------
 
 def update_Menu():
-    print("\n------------- Atualizar -----------\n")
-    print("1 - Nome")
-    print("2 - Idade")
-    print("3 - Matricula")
-    print("4 - CPF")
-    print("5 - Sexo")
-    print("0 - Voltar")
+    while True:
+        print("\n------------- Atualizar -----------\n")
+        print("1 - Nome")
+        print("2 - Idade")
+        print("3 - Matricula")
+        print("4 - CPF")
+        print("5 - Sexo")
+        print("0 - Voltar")
 
-    return input("\n--> ")
+        option = input("\n--> ")
+
+        if verify_int(option):
+            return int(option)
+        else:
+            print("Valor Inválido!\n")
 
 
 def update(List):
@@ -122,13 +134,13 @@ def update(List):
 
                 match option:
 
-                    case "0":
+                    case 0:
                         break
 
-                    case "1":
+                    case 1:
                         aluno.name = input("\nNovo nome: ")
 
-                    case "2":
+                    case 2:
                         new_Age = input("\nNova Idade: ")
 
                         valid = verify_int(new_Age)
@@ -142,7 +154,7 @@ def update(List):
                             aluno.age = new_Age
                             print("Idade Atualizada!")
 
-                    case "3":
+                    case 3:
                         new_Mat = input("\nNova Matricula: ")
 
                         valid = verify_int(new_Mat)
@@ -161,13 +173,13 @@ def update(List):
                             aluno.matricula = new_Mat
                             print("Matricula Atualizada!")
 
-                    case "4":
+                    case 4:
                         new_CPF = input("\nNovo CPF: ")
 
                         aluno.cpf = new_CPF
                         print("CPF Atualizado!")
                     
-                    case "5":
+                    case 5:
                         new_Sex = input("\nNovo Sexo: ")
 
                         if new_Sex.upper() != 'M' and new_Sex.upper() != 'F':
@@ -190,16 +202,34 @@ def remove_Student(List):
     if search:
         student = search_Matricula(List, search)
         
-        print_Student(student)
-        valid = input("Excluir aluno (S-sim/ N-não): ")
+        if student != False:
+            print_Student(student)
+            valid = input("Excluir aluno (S-sim/ N-não): ")
 
-        if valid.upper() == 'S':
-            List.pop(List.index(student))
-            return True
-        else:
-            return False
+            if valid.upper() == 'S':
+                List.pop(List.index(student))
+                return True
+            else:
+                return False
 
 # -------------------------------- Listar ------------------------------------
+
+def List_Menu():
+    while True:
+        print("\n------------- Listar -----------\n")
+        print("1 - Todos")
+        print("2 - Nome")
+        print("3 - Idade")
+        print("4 - Sexo")
+        print("0 - Voltar")
+
+        option = input("\n--> ")
+
+        if verify_int(option):
+            return int(option)
+        else:
+            print("Valor Inválido!\n")
+
 
 def show_Students(List):
     for student in List:
@@ -208,6 +238,53 @@ def show_Students(List):
         print(f"\tSexo: {student.sexo}")
         print(f"\tMatricula: {student.matricula}")
         print(f"\tCPF: {student.cpf}\n")
+
+
+def show_inOrder_Name(List):
+    x = sorted(List, key=lambda aluno: aluno.name)
+    show_Students(x)
+
+
+def show_inOrder_Age(List):
+    x = sorted(List, key=lambda aluno: aluno.age)
+    show_Students(x)
+
+
+def List_Student(List):
+
+    while True:
+        option = List_Menu()
+
+        match option:
+            case 0:
+                break
+
+            case 1:
+                print("\n------------- Todos -----------\n")
+                show_Students(List)
+
+            case 2:
+                print("\n----------- Por Nome -----------\n")
+                show_inOrder_Name(List)
+
+            case 3:
+                print("\n----------- Por Idade ----------\n")
+                show_inOrder_Age(List)
+
+            case 4:
+                option = input("Sexo (M/F): ")
+
+                if option.upper() != "M" and option.upper() != "F":
+                    print("Valor Inválido!")
+                else:
+                    print("\n------------- Por Sexo: {} -----------\n". format(option.upper()))
+                    for student in List:
+                        if student.sexo == option.upper():
+                            print_Student(student)
+
+            case _:
+                print("Valor Inválido")
+
 
 def print_Student(student):
     print(f"\n\tNome: {student.name}")
