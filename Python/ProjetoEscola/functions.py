@@ -42,7 +42,7 @@ def search_Matricula(List, search):
 
 # --------------------------------- Inserir ----------------------------------
 
-def verify_Cad(age, cpf, mat, sex):
+def verify_Cad(age, cpf, mat, sex, List):
 
     if verify_int(age) == False:
         print("\nIdade Inválida!")
@@ -54,6 +54,10 @@ def verify_Cad(age, cpf, mat, sex):
     
     elif sex.upper() != 'M' and sex.upper() != 'F': 
         print("\nSexo Inválido!")
+        return False
+    
+    elif search_Matricula(List, int(mat)) != False:
+        print("\nMatricula Já Existente!")
         return False
     
     elif verify_int(mat) == False:
@@ -75,7 +79,7 @@ def new_student(Lista):
     mat = input("Matricula: ")
     sex = input("Sexo: ")
 
-    valid = verify_Cad(age, cpf, mat, sex)
+    valid = verify_Cad(age, cpf, mat, sex, Lista)
 
     if valid == True:
         age = int(age)
@@ -113,6 +117,7 @@ def update(List):
         
         else:
             while True:
+                print_Student(aluno)
                 option = update_Menu()
 
                 match option:
@@ -147,6 +152,11 @@ def update(List):
                         if new_Mat < 0:
                             print("\nMatricula Inválida!")
                             continue
+
+                        elif search_Matricula(List, new_Mat) != False:
+                            print("\nMatricula Já Existente!")
+                            continue
+
                         else:
                             aluno.matricula = new_Mat
                             print("Matricula Atualizada!")
@@ -200,7 +210,7 @@ def show_Students(List):
         print(f"\tCPF: {student.cpf}\n")
 
 def print_Student(student):
-    print(f"\tNome: {student.name}")
+    print(f"\n\tNome: {student.name}")
     print(f"\tIdade: {student.age}")
     print(f"\tSexo: {student.sexo}")
     print(f"\tMatricula: {student.matricula}")
