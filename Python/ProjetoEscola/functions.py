@@ -24,6 +24,21 @@ def verify_int(x):
     
     return False
 
+def get_Matricula():
+    value = input("\nDigite a Matricula: ")
+
+    if verify_int(value):
+        return int(value)
+    else:
+        return False
+    
+def search_Matricula(List, search):
+    for aluno in List:
+        if aluno.matricula == search:
+            return aluno
+        
+    return False
+
 
 # --------------------------------- Inserir ----------------------------------
 
@@ -86,20 +101,6 @@ def update_Menu():
 
     return input("\n--> ")
 
-def get_Matricula():
-    value = input("\nDigite a Matricula: ")
-
-    if verify_int(value):
-        return int(value)
-    else:
-        return False
-
-def search_Matricula(List, search):
-    for aluno in List:
-        if aluno.matricula == search:
-            return aluno
-        
-    return False
 
 def update(List):
     search = get_Matricula()
@@ -117,7 +118,7 @@ def update(List):
                 match option:
 
                     case "0":
-                        return True
+                        break
 
                     case "1":
                         aluno.name = input("\nNovo nome: ")
@@ -170,15 +171,47 @@ def update(List):
                         print("\nValor Inválido!")
     else:
         print("\nMatricula Inválida!\n")
+
+# -------------------------------- Excluir ------------------------------------
+
+def remove_Student(List):
+    search = get_Matricula()
+
+    if search:
+        student = search_Matricula(List, search)
         
-    return False
+        print_Student(student)
+        valid = input("Excluir aluno (S-sim/ N-não): ")
+
+        if valid.upper() == 'S':
+            List.pop(List.index(student))
+            return True
+        else:
+            return False
 
 # -------------------------------- Listar ------------------------------------
 
 def show_Students(List):
-    for item in List:
-        print(f"\tNome: {item.name}")
-        print(f"\tIdade: {item.age}")
-        print(f"\tSexo: {item.sexo}")
-        print(f"\tMatricula: {item.matricula}")
-        print(f"\tCPF: {item.cpf}\n")
+    for student in List:
+        print(f"\tNome: {student.name}")
+        print(f"\tIdade: {student.age}")
+        print(f"\tSexo: {student.sexo}")
+        print(f"\tMatricula: {student.matricula}")
+        print(f"\tCPF: {student.cpf}\n")
+
+def print_Student(student):
+    print(f"\tNome: {student.name}")
+    print(f"\tIdade: {student.age}")
+    print(f"\tSexo: {student.sexo}")
+    print(f"\tMatricula: {student.matricula}")
+    print(f"\tCPF: {student.cpf}\n")
+
+
+#--------------------------------- Cadastros de Teste ---------------------------
+
+def mod_Test(List):
+    List.append( Alunos(name="Pedro", age=17, cpf="123.123.123-12", matricula=1, sexo="M") )
+    List.append( Alunos(name="Maria", age=20, cpf="132.143.622-02", matricula=2, sexo="F") )
+    List.append( Alunos(name="Felipe", age=29, cpf="123.123.123-12", matricula=3, sexo="M") )
+    List.append( Alunos(name="Beatriz", age=23, cpf="185.194.833-62", matricula=4, sexo="F") )
+    List.append( Alunos(name="Ana", age=19, cpf="171.181.513-15", matricula=5, sexo="F") )

@@ -2,6 +2,8 @@ import functions
 
 __Alunos = []
 
+#------ Cadastros de Teste -------
+functions.mod_Test(__Alunos)
 
 while True:
     option = functions.main_Menu()
@@ -29,6 +31,10 @@ while True:
 
         case "4":
             print("------------- Excluir -------------")
+            valid = functions.remove_Student(__Alunos)
+
+            if valid:
+                print("\nAluno Removido!\n")
 
         case _:
             print("Valor Inválido!")
