@@ -1,13 +1,13 @@
-from ProjetoEscola import db
+from database import db
 
 class Students_Inf(db.Model):
     __tablename__ = "Students_List"
 
-    id = db.Collumn(db.Integer, primary_key=True)
-    name = db.model(db.String, nullable=False)
-    age = db.model(db.Integer, nullable=False)
-    cpf = db.model(db.String, unique=True)
-    email = db.Collumn(db.String, unique=True)
+    id = db.Column(db.Integer, primary_key=True)
+    name = db.Column(db.String, nullable=False)
+    age = db.Column(db.Integer, nullable=False)
+    cpf = db.Column(db.String, unique=True)
+    email = db.Column(db.String, unique=True)
 
     def __init__(self, name, age, cpf, email):
         self.name = name

@@ -1,17 +1,13 @@
-#   Ended at 32:00
-
 from flask import Flask
-from flask_sqlalchemy import SQLAlchemy
+from database import db
 from flask_migrate import Migrate
 from users import bp_Students
 
 app = Flask(__name__)
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///students.db'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///students_db.sqlite'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 app.config['SECRET_KEY'] = 'MyKeY0192'
-app.register_blueprint(bp_Students, url_prefix='/student')
-# db = SQLAlchemy(app)
-db = SQLAlchemy()
+app.register_blueprint(bp_Students, url_prefix='/User')
 db.init_app(app)
 
 migrate = Migrate(app, db)
