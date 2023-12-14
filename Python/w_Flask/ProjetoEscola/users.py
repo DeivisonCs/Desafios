@@ -25,3 +25,34 @@ def create():
 def list_students():
     Students_all = Students_Inf.query.all()
     return render_template("list_students.html", Students_all=Students_all)
+
+
+@bp_Students.route('/update/<int:id>', methods=['GET', 'POST'])
+def update_student(id):
+    User = Students_Inf.query.get(id)
+
+    if request.method == 'GET':
+        return render_template('update_student.html', User=User )
+    
+    if request.method == 'POST':
+        User.name = request.form.get("name")
+        User.age = request.form.get("age")
+        User.cpf = request.form.get("cpf")
+        User.email = request.form.get("email")
+
+        db.session.add(User)
+        db.session.commit()
+
+        User = Students_Inf.query.all()
+        return render_template("list_students.html", Students_all=User)
+    
+
+@bp_Students.route('/remove/<int:id>', methods=['GET'])
+def remove_student(id):
+    User = Students_Inf.query.get(id)
+
+    db.session.delete(User)
+    db.session.commit()
+
+    User = Students_Inf.query.all()
+    return render_template("list_students.html", Students_all=User)
