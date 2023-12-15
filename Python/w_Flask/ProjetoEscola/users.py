@@ -1,4 +1,4 @@
-from flask import Blueprint, render_template, request
+from flask import Blueprint, render_template, request, redirect
 from database import db
 from models.tables import Students_Inf
 
@@ -53,6 +53,4 @@ def remove_student(id):
 
     db.session.delete(User)
     db.session.commit()
-
-    User = Students_Inf.query.all()
-    return render_template("list_students.html", Students_all=User)
+    return redirect("list_students.html")
